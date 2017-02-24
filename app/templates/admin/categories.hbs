@@ -1,0 +1,19 @@
+<h1>Categories Admin Page</h1>
+
+<form>
+  <label>ID:</label>
+    {{input value=newCategoryId}}
+  <label>NAME:</label>
+    {{input value=newCategoryName}}
+    <button type="submit" {{action 'addNewCategory' newCategoryId newCategoryName}}>Add</button>
+</form>
+
+<ul>
+  {{#each model as |Categories|}}
+    <li>
+      ID: {{Categories.id}}, NAME: {{Categories.name}}
+      <button {{action 'deleteCategory' Categories}}>Delete</button> 
+    </li>
+  {{/each}}
+</ul>
+{{outlet}}
